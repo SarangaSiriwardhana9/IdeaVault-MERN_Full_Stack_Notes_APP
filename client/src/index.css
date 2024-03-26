@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer utilities {
+    .bg-custom1 {
+      background-color: #ffd700; 
+    }
+    .bg-custom2 {
+      background-color: #f08080; 
+    }
+    .text-custom1 {
+      color: #ffd700; 
+    }
+    .text-custom2 {
+      color: #f08080; 
+    }
+  }

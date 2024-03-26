@@ -108,7 +108,7 @@ export default function Profile() {
       console.log(error);
     }
   };
-
+console.log(currentUser)
   return (
     <div className='flex justify-center items-center h-screen bg-gray-100'>
       <div className='bg-white p-8 rounded-md shadow-lg w-full max-w-md'>
