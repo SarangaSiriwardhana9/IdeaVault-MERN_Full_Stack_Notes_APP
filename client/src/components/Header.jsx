@@ -55,7 +55,7 @@ export default function Header() {
 
   return (
     //bg-[#fffae8]
-    <header className="py-4" style={{ backgroundImage: `url(${bg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <header className="py-4 bg-gradient-to-r from-[rgb(255,253,240)] via-[#fcfda0] to-[#f3ba6e]" >
       <div className="container mx-auto flex justify-between items-center">
         <Link to='/' className="flex items-center">
           <img src={logo} alt="Logo" className=" px-8 h-16 -m-2" />

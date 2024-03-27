@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import homeImage from "/Home.png"; 
+import cloudBg from "/cloud.png";
 import AppFooter from "../components/Footer";
 import '../Font.css'
 
@@ -16,7 +17,8 @@ export default function Home() {
       </div>
       
       {/* Right-hand side: Text content */}
-        <div className="md:w-1/2 md:ml-4 mt-4 md:mt-0">
+        <div className="md:w-1/2 md:ml-4 mt-4 md:mt-0" >
+          <div className="">
           <h1 className="my-text text-3xl font-bold text-slate-600 mb-2 py-3 ">Welcome to Idea Vault</h1>
           <p className="my-text text-lg text-gray-800 ">
           Idea Vault is your personal space to jot down, organize, and access your ideas
@@ -27,6 +29,7 @@ export default function Home() {
           <button className="bg-[#ffef94] hover:bg-[#fffeb4] shadow-lg text-slate-600 font-bold py-2 px-4  rounded-xl mt-4">
             Get Started
           </button>
+          </div>
         </div>
     </div>
     <AppFooter />
