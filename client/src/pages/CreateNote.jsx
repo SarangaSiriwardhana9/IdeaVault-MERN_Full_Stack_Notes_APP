@@ -60,7 +60,7 @@ export default function CreateNote() {
         <div className="min-h-screen flex flex-col justify-between">
             <div className="flex-grow bg-gradient-to-r from-[rgb(255,255,255)] via-[#fff9f4] to-[#faffad]">
                 <div className=" ">
-                    <div className="container mx-auto  mt-14 sha ">
+                    <div className="container mx-auto  p-14  ">
                         <div className="max-w-4xl mx-auto rounded-lg overflow-hidden bg-slate-50  shadow-2xl">
                             <div className="px-6 py-8">
                                 <input
@@ -88,7 +88,7 @@ export default function CreateNote() {
                             <div className=" px-6 py-4">
                                 <button
                                     onClick={handleSubmit}
-                                    className="bg-[#f1e59e] hover:bg-[#fffeb4] shadow-lg text-slate-600  font-bold py-2 px-4 rounded focus:outline-none"
+                                    className="bg-[#fdeb83] hover:bg-[#fffd78] shadow-lg text-slate-600  font-bold py-2 px-4 rounded focus:outline-none"
                                 >
                                     Save
                                 </button>
