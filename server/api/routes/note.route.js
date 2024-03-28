@@ -7,6 +7,7 @@ import {
   searchNotes,
   updateNote,
   deleteNote,
+  getNoteById
 } from '../controllers/note.controller.js';
 
 const router = express.Router();
@@ -20,6 +21,7 @@ router.delete('/delete-note/:id', verifyToken, deleteNote);
 // Update the pinned status of a note
 router.put('/update-note-pinned-status/:id', verifyToken, updateNotePinnedStatus);
 router.get('/search-notes', verifyToken, searchNotes);
+router.get('/get-note-by-id/:id', verifyToken, getNoteById);
 
 
 export default router;

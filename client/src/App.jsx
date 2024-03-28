@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import PrivateRoute from "./components/PrivateRoute";
 import CreateNote from "./pages/CreateNote";
 import MyNotes from "./pages/MyNotes";
+import UpdateNote from "./pages/UpdateNote";
 import  Footer  from "./components/Footer";
 
 export default function App() {
@@ -29,6 +30,7 @@ export default function App() {
               <Route path='/profile' element={<Profile />} />
               <Route path='/createnote' element={<CreateNote />} />
               <Route path='/mynotes' element={<MyNotes />} />
+              <Route path='/update-note/:id' element={<UpdateNote />} />
             </Route>
             
           </Routes>

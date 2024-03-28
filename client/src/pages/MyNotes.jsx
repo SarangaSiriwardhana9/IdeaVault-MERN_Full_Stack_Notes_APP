@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import NoteComponent from "../components/NoteComponent";
 import Loader from "../components/Loader";
 import { FaSearch } from "react-icons/fa";
+import '../Font.css'
 
 export default function MyNotes() {
     const { currentUser } = useSelector((state) => state.user);
@@ -98,77 +99,79 @@ export default function MyNotes() {
     };
 
     return (
-        <div className="min-h-screen flex flex-col justify-center items-center">
-            <div className="flex flex-col h-full">
-                <div className="flex justify-center mt-4 items-center mb-4">
-                    <div className="relative">
-                        <input
-                            type="text"
-                            placeholder="Search notes"
-                            value={searchTerm}
-                            onChange={handleSearch}
-                            className="border-2 border-gray-300 bg-white h-10 px-5 pr-10 rounded-lg text-sm focus:outline-none"
-                        />
-                        <FaSearch className="absolute right-2 top-2 text-gray-400" />
-                    </div>
-                </div>
-                <div className="flex flex-col justify-center items-center mb-4">
-                    {loading && <Loader />} {/* Show loader while loading notes */}
-                    {!loading && pinnedNotes.length > 0 && (
-                        <>
-                            <h1 className="text-3xl font-bold mb-4">Pinned Notes</h1>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:px-24 gap-8 px-4">
-                                {pinnedNotes.map((note) => (
-                                    <NoteComponent
-                                        key={note._id}
-                                        note={note}
-                                        onDelete={deleteNote}
-                                        onUpdatePinnedStatus={updateNotePinnedStatus}
-                                    />
-                                ))}
-                            </div>
-                        </>
-                    )}
-                    {!loading && unpinnedNotes.length > 0 && (
-                        <>
-                            <h1 className="text-3xl font-bold mb-4">Other Notes</h1>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:px-24 gap-8 px-4">
-                                {unpinnedNotes.map((note) => (
-                                    <NoteComponent
-                                        key={note._id}
-                                        note={note}
-                                        onDelete={deleteNote}
-                                        onUpdatePinnedStatus={updateNotePinnedStatus}
-                                    />
-                                ))}
-                            </div>
-                            <nav className="mt-4 mb-4" aria-label="Pagination">
-                                <ul className="flex justify-center">
-                                    {Array.from({ length: Math.ceil(notes.length / notesPerPage) }, (_, i) => (
-                                        <li key={i} className="mx-2">
-                                            <button
-                                                className={`${
-                                                    i + 1 === currentPage
-                                                        ? 'bg-gray-800 text-white'
-                                                        : 'bg-gray-200 text-gray-800'
-                                                } px-3 py-1 rounded-md`}
-                                                onClick={() => paginate(i + 1)}
-                                            >
-                                                {i + 1}
-                                            </button>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </nav>
-                        </>
-                    )}
-                    {!loading && pinnedNotes.length === 0 && unpinnedNotes.length === 0 && (
-                        <p>No notes</p>
-                    )}
-                </div>
-                <ToastContainer /> {/* Container for displaying toasts */}
+        <div className="min-h-screen flex flex-col bg-gradient-to-r from-[#fdfdf9] via-[#f3e7e9] to-[#f3f9a7]">
+          <div className="flex flex-col">
+            <div className="flex justify-center mt-4 items-center mb-4">
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Search notes"
+                  value={searchTerm}
+                  onChange={handleSearch}
+                  className="border-2 border-gray-300 bg-white h-10 px-5 pr-10 rounded-lg text-sm focus:outline-none"
+                />
+                <FaSearch className="absolute right-2 top-3 text-gray-400" />
+              </div>
             </div>
+            <div className="flex flex-col justify-center items-center mb-8">
+              {loading && <Loader />} {/* Show loader while loading notes */}
+              {!loading && pinnedNotes.length > 0 && (
+                <>
+                  <h1 className="my-text text-shadow-strong text-3xl md:text-4xl font-bold text-slate-600 mb-4 py-3">Pinned Notes</h1>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-24">
+                    {pinnedNotes.map((note) => (
+                      <NoteComponent
+                        key={note._id}
+                        note={note}
+                        onDelete={deleteNote}
+                        onUpdatePinnedStatus={updateNotePinnedStatus}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
+              {!loading && unpinnedNotes.length > 0 && (
+                <>
+                  <h1 className="my-text text-shadow-strong   text-3xl md:text-4xl font-bold text-slate-600 mb-4 py-6">Other Notes</h1>
+                  <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-24">
+                    {unpinnedNotes.map((note) => (
+                      <NoteComponent
+                        key={note._id}
+                        note={note}
+                        onDelete={deleteNote}
+                        onUpdatePinnedStatus={updateNotePinnedStatus}
+                      />
+                    ))}
+                  </div>
+                  <nav className="mt-4 mb-4" aria-label="Pagination">
+                    <ul className="flex justify-center">
+                      {Array.from({ length: Math.ceil(notes.length / notesPerPage) }, (_, i) => (
+                        <li key={i} className="mx-2">
+                          <button
+                            className={`${
+                              i + 1 === currentPage
+                                ? 'bg-gray-800 text-white'
+                                : 'bg-gray-200 text-gray-800'
+                            } px-3 py-1 rounded-md`}
+                            onClick={() => paginate(i + 1)}
+                          >
+                            {i + 1}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+                </>
+              )}
+              {!loading && pinnedNotes.length === 0 && unpinnedNotes.length === 0 && (
+                <p>No notes</p>
+              )}
+            </div>
+            <ToastContainer /> {/* Container for displaying toasts */}
+          </div>
         </div>
-    );
+      );
+      
+    
     
 }

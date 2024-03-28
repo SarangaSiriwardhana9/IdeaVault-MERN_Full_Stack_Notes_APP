@@ -44,20 +44,23 @@ export const updateNote = async (req, res, next) => {
       return next(errorHandler(404, 'Note not found'));
     }
 
-    if (note.userId !== req.user.id) {
-      return next(errorHandler(403, 'You are not authorized to update this note'));
+    if (note.userId == req.user.id) {
+      const updatedNote = await Note.findByIdAndUpdate(
+        id,
+        { title, content },
+        { new: true }
+      );
+      
+      return res.status(200).json(updatedNote);
     }
-
-    const updatedNote = await Note.findByIdAndUpdate(
-      id,
-      { title, content },
-      { new: true }
-    );
-    res.status(200).json(updatedNote);
+    
+    return next(errorHandler(403, 'You are not authorized to update this note'));
+ 
   } catch (error) {
     next(error);
   }
 };
+
 
 
 // Delete a note
@@ -124,5 +127,22 @@ export const searchNotes = async (req, res, next) => {
     res.status(200).json(notes);
   } catch (error) {
     next(error);
+  }
+};
+
+// Get a note by ID
+export const getNoteById = async (req, res, next) => {
+  const { id } = req.params;
+
+  try {
+      const note = await Note.findById(id);
+
+      if (!note) {
+          return next(errorHandler(404, 'Note not found'));
+      }
+
+      res.status(200).json(note);
+  } catch (error) {
+      next(error);
   }
 };
