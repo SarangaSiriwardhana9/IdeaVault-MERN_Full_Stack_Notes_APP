@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import OAuth from "../components/OAuth";
+import '../Font.css'
 
 export default function SignUp() {
   const [formData, setFormData] = useState({});
@@ -70,9 +71,9 @@ export default function SignUp() {
   };
 
   return (
-    <div className='min-h-screen flex items-center justify-center bg-gray-100'>
-      <div className='bg-white rounded-2xl -mt-28 p-8 shadow-xl w-full max-w-md'>
-        <h2 className='text-3xl font-extrabold text-center mb-6 text-blue-600'>
+    <div className='min-h-screen flex items-center justify-center  bg-gradient-to-r from-[#fdfdf9] via-[#f3e7e9] to-[#f3f9a7]'>
+      <div className='bg-white rounded-2xl my-8 mx-4 p-8 shadow-xl w-full max-w-md'>
+        <h2 className='text-3xl font-extrabold text-center mb-6 text-[#a89a49]'>
           Sign Up
         </h2>
         <form onSubmit={handleSubmit}>
@@ -89,7 +90,7 @@ export default function SignUp() {
               name='username'
               value={formData.username || ""}
               onChange={handleChange}
-              className='w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500'
+              className='w-full px-4 py-2 border rounded-md focus:outline-none focus:border-[#a89a49]'
               placeholder='Enter your username'
               required
             />
@@ -104,7 +105,7 @@ export default function SignUp() {
               name='email'
               value={formData.email || ""}
               onChange={handleChange}
-              className='w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500'
+              className='w-full px-4 py-2 border rounded-md focus:outline-none focus:border-[#a89a49]'
               placeholder='Enter your email'
               required
             />
@@ -122,15 +123,15 @@ export default function SignUp() {
               name='password'
               value={formData.password || ""}
               onChange={handleChange}
-              className='w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500'
+              className='w-full px-4 py-2 border rounded-md focus:outline-none focus:border-[#a89a49]'
               placeholder='Enter your password'
               required
             />
           </div>
           <button
             type='submit'
-            className={`w-full bg-blue-500 text-white py-2 px-4 rounded-md focus:outline-none ${
-              loading ? "opacity-70 cursor-not-allowed" : "hover:bg-blue-600"
+            className={`w-full my-text bg-[#e9dc6d] my-text   font-bold text-slate-600 hover:bg-[#c4b852] py-2 px-4 rounded-md focus:outline-none ${
+              loading ? "opacity-70 cursor-not-allowed" : "hover:bg-[#a89a49]"
             }`}
             disabled={loading}
           >
@@ -140,7 +141,7 @@ export default function SignUp() {
         </form>
         <p className='mt-4 text-center text-gray-600'>
           Already have an account?{" "}
-          <Link to='/signin' className='text-blue-500 hover:underline'>
+          <Link to='/signin' className='text-[#6b6129] hover:underline'>
             Sign In
           </Link>
         </p>

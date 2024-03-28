@@ -9,6 +9,7 @@ import {
 } from "../redux/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import OAuth from "../components/OAuth";
+import '../Font.css'
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
@@ -76,9 +77,9 @@ export default function SignIn() {
   };
 
   return (
-    <div className='min-h-screen flex items-center justify-center bg-gray-100'>
-      <div className='bg-white rounded-2xl -mt-28 p-8 shadow-xl w-full max-w-md'>
-        <h2 className='text-3xl font-extrabold text-center mb-6 text-blue-600'>
+    <div className='min-h-screen flex items-center justify-center  bg-gradient-to-r from-[#fdfdf9] via-[#f3e7e9] to-[#f3f9a7]'>
+      <div className='bg-white rounded-2xl my-8 mx-4 p-8 shadow-xl w-full max-w-md'>
+        <h2 className='my-text text-4xl font-extrabold text-center mb-6 text-[#a89a49]'>
           Sign In
         </h2>
         <form onSubmit={handleSubmit}>
@@ -92,7 +93,7 @@ export default function SignIn() {
               name='email'
               value={formData.email || ""}
               onChange={handleChange}
-              className='w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500'
+              className='w-full px-4 py-2 border rounded-md focus:outline-none focus:border-[#a89a49]'
               placeholder='Enter your email'
               required
             />
@@ -110,15 +111,15 @@ export default function SignIn() {
               name='password'
               value={formData.password || ""}
               onChange={handleChange}
-              className='w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500'
+              className='w-full px-4 py-2 border rounded-md focus:outline-none focus:border-[#a89a49]'
               placeholder='Enter your password'
               required
             />
           </div>
           <button
             type='submit'
-            className={`w-full bg-blue-500 text-white py-2 px-4 rounded-md focus:outline-none hover:opacity-95 ${
-              loading ? "opacity-70 cursor-not-allowed" : "hover:bg-blue-600"
+            className={`w-full bg-[#e9dc6d] my-text   font-bold text-slate-600 py-2 px-4 rounded-md focus:outline-none hover:opacity-95 ${
+              loading ? "opacity-70 cursor-not-allowed" : "hover:bg-[#c4b852]"
             }`}
             disabled={loading}
           >
@@ -128,7 +129,7 @@ export default function SignIn() {
         </form>
         <p className='mt-4 text-center text-gray-600'>
           Dont have an account?{" "}
-          <Link to='/signup' className='text-blue-500 hover:underline'>
+          <Link to='/signup' className='text-[#5e5721]  hover:underline'>
             Sign Up
           </Link>
         </p>

@@ -1,7 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { useSelector } from 'react-redux';
-import AppFooter from "../components/Footer";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import '../custom-toast.css'; // Import custom toast style
+import Loader from '../components/Loader'; // Import the Loader component
 
 export default function CreateNote() {
     const { currentUser } = useSelector((state) => state.user);
@@ -11,6 +14,7 @@ export default function CreateNote() {
         userId: currentUser._id,
     });
     const [errors, setErrors] = useState({});
+    const [loading, setLoading] = useState(false); // Add a loading state
 
     const handleChange = (e) => {
         setNote({
@@ -40,6 +44,8 @@ export default function CreateNote() {
             return;
         }
 
+        setLoading(true); // Set loading to true before the fetch call
+
         try {
             const response = await fetch('/api/note/create-note', {
                 method: 'POST',
@@ -51,8 +57,27 @@ export default function CreateNote() {
             });
             const data = await response.json();
             console.log(data);
+            // Show success alert
+            toast.success('Note saved successfully!', {
+                position: "bottom-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                className: 'custom-toast', // Use custom-toast class
+            });
+            // Clear form
+            setNote({
+                title: '',
+                content: '',
+                userId: currentUser._id,
+            });
         } catch (error) {
             console.log(error);
+        } finally {
+            setLoading(false); // Set loading to false after the fetch call completes
         }
     };
 
@@ -60,8 +85,12 @@ export default function CreateNote() {
         <div className="min-h-screen flex flex-col justify-between">
             <div className="flex-grow bg-gradient-to-r from-[rgb(255,255,255)] via-[#fff9f4] to-[#faffad]">
                 <div className=" ">
-                    <div className="container mx-auto  p-14  ">
+                    <div className="container mx-auto  p-8  ">
+                        
                         <div className="max-w-4xl mx-auto rounded-lg overflow-hidden bg-slate-50  shadow-2xl">
+                        <h1 className="text-2xl mt-2 text-center font-serif font-bold text-slate-600">Create Note</h1>
+
+
                             <div className="px-6 py-8">
                                 <input
                                     type="text"
@@ -93,11 +122,12 @@ export default function CreateNote() {
                                     Save
                                 </button>
                             </div>
+                            {loading && <Loader />} {/* Show the Loader component if loading is true */}
                         </div>
                     </div>
                 </div>
             </div>
-            <AppFooter />
+            <ToastContainer />
         </div>
     );
 }

@@ -64,7 +64,7 @@ export default function Header() {
   };
 
   return (
-    <header className="py-1 bg-gradient-to-r from-[rgb(255,255,255)] via-[#fff9f4] to-[#faffad] " >
+    <header className="py-1 bg-gradient-to-r from-[rgb(255,216,164)] via-[#fada95] to-[#f8d17c] " >
       <div className="container mx-auto flex justify-between items-center">
         <Link to='/' className="flex items-center">
           <img src={logo} alt="Logo" className=" px-2 h-16 " />
@@ -86,11 +86,11 @@ export default function Header() {
               </button>
             </div>
             <div ref={menuRef} className="relative">
-              <button onClick={toggleMenu} className="bg-white py-2 rounded-xl hover:bg-[#fdffdc] shadow-md">
-                <GiHamburgerMenu className="m-2 mx-4"/>
+              <button onClick={toggleMenu} className="bg-white py-1 rounded-xl me-2 hover:bg-[#fdffdc] shadow-md">
+                <GiHamburgerMenu className="m-2 mx-2"/>
               </button>
               {isMenuOpen && (
-                <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-end  " onClick={closeMenu}>
+                <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-end z-50 " onClick={closeMenu}>
                   <div className=" w-52 bg-[#fffae8] items-center justify-center rounded-r-lg shadow-lg">
                     
                     <Link 
@@ -156,18 +156,19 @@ export default function Header() {
         ) : (
           <div className="flex space-x-4">
            {/* responsive button for signup and sign in */}
-            <Link
-              to='/signup'
-              className="bg-[#ffef94] hover:bg-[#fffeb4] shadow-lg text-slate-600 font-bold py-2 px-4  rounded-xl"
-            >
-              Sign Up
-            </Link>
-            <Link
-              to='/signin'
-              className="bg-[#ffef94] hover:bg-[#fffeb4] shadow-lg text-slate-600 font-bold py-2 px-4  rounded-xl"
-            >
-              Sign In
-            </Link>
+           <Link
+  to='/signup'
+  className="hidden sm:inline-block bg-[#fcefa4] hover:bg-[#fffeb4]  shadow-sm text-slate-600 sm:py-1 sm:px-2 font-bold py-2 px-4 rounded-xl"
+>
+  Sign Up
+</Link>
+
+<Link
+  to='/signin'
+  className="bg-[#ffef94] hover:bg-[#fffeb4] shadow-sm text-slate-600 font-bold py-2 px-4 sm:py-1 sm:px-2 rounded-xl"
+>
+  Sign In
+</Link>
           </div>
         )}
       </div>

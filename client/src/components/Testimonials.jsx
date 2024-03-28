@@ -20,7 +20,7 @@ export default function Testimonials() {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Testimonial 1 */}
-        <div className="bg-white rounded-full  p-8 shadow-2xl flex flex-col items-center justify-center gap-2">
+        <div className="bg-white rounded-full  p-8 shadow-xl flex flex-col items-center justify-center gap-2">
           <FaQuoteLeft className="text-4xl text-[#7c5836]" />
           <p className="text-lg text-center font-semibold text-gray-800">
             &quot;I&apos;ve been using the service for a year now and it&apos;s been amazing! Highly recommended!&quot;
@@ -49,7 +49,7 @@ export default function Testimonials() {
           </div>
         </div>
         {/* Testimonial 2 */}
-        <div className="bg-white rounded-full p-8 shadow-2xl flex flex-col items-center justify-center gap-2">
+        <div className="bg-white rounded-full p-8 shadow-xl flex flex-col items-center justify-center gap-2">
           <FaQuoteLeft className="text-4xl text-[#7c5836]" />
           <p className="text-lg text-center font-semibold text-gray-800">
             &quot;The service helped me streamline my workflow and increase productivity. Thank you!&quot;
@@ -79,7 +79,7 @@ export default function Testimonials() {
           </div>
 
           {/* Testimonial 3 */}
-        <div className="bg-white rounded-full p-8 shadow-2xl flex flex-col items-center justify-center gap-2">
+        <div className="bg-white rounded-full p-8 shadow-xl flex flex-col items-center justify-center gap-2">
           <FaQuoteLeft className="text-4xl text-[#7c5836]" />
           <p className="text-lg text-center font-semibold text-gray-800">
             &quot;I&apos;Excellent customer support and user-friendly interface. Couldn&apos;t be happier!
