@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -16,7 +17,7 @@ import { FaTimes } from "react-icons/fa"; // Import the close icon
 import { deleteUserFailure, deleteUserSuccess, signOutUserStart } from '../redux/user/userSlice';
 
 export default function Header() {
-  const [isSticky, setSticky] = useState(false);
+
   const { currentUser } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -74,18 +75,18 @@ export default function Header() {
             <div className="relative px-4 flex">
               <button>
                 {currentUser ? (
-                  <img
-                    src={currentUser.profilePicture}
-                    alt='profile'
-                    className=" w-12 h-12 -mr-2 rounded-full shadow-md"
-                  />
+               <img
+               src={currentUser.profilePicture}
+               alt='profile'
+               className="w-12 h-11 -mr-2 rounded-full shadow-md border-2 border-white"
+             />
                 ) : (
                   <span className="text-white">Sign In</span>
                 )}
               </button>
             </div>
             <div ref={menuRef} className="relative">
-              <button onClick={toggleMenu} className="bg-white py-2 rounded-xl hover:bg-[#faffad] shadow-md">
+              <button onClick={toggleMenu} className="bg-white py-2 rounded-xl hover:bg-[#fdffdc] shadow-md">
                 <GiHamburgerMenu className="m-2 mx-4"/>
               </button>
               {isMenuOpen && (

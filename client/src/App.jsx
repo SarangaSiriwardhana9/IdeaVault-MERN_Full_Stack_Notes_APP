@@ -12,6 +12,7 @@ import  Footer  from "./components/Footer";
 
 export default function App() {
   return (
+    <>
     <BrowserRouter>
       
       
@@ -31,10 +32,12 @@ export default function App() {
             </Route>
             
           </Routes>
-          <Footer />
+          
           
       
       
     </BrowserRouter>
+    <Footer />
+    </>
   );
 }

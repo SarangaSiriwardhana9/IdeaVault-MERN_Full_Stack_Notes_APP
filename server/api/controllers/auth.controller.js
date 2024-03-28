@@ -52,7 +52,8 @@ export const google = async (req, res, next) => {
     if (user) {
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
       const { password: hashedPassword, ...rest } = user._doc;
-      const expiryDate = new Date(Date.now() + 3600000); // cookie for one hour
+      const expiryDate = new Date(Date.now() + 2 * 3600000); // cookie for two hours
+
 
       res
         .cookie("access_token", token, {

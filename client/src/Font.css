@@ -1,3 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400..700&display=swap');
+
+
 .my-text {
     font-family: 'Roboto', sans-serif;
+  }
+
+  .bebas-neue-regular {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+ 
+ 
+
+  .text-shadow-inner {
+    text-shadow: var(--text-shadow-inner); /* Reference the theme value */
+  }
+
+  .text-shadow-strong {
+    text-shadow:
+      2px 2px 0px rgba(51, 85, 0, 0.3), /* Strong black shadow (offset, blur, spread, color) */
+      4px 4px 0px rgba(58, 43, 1, 0.1); /* Lighter black shadow for depth */
+  }
+
+  .text-shadow-title {
+    text-shadow:
+      2px 2px 0px rgba(51, 85, 0, 0.1), /* Strong black shadow (offset, blur, spread, color) */
+      4px 4px 0px rgba(58, 43, 1, 0.15); /* Lighter black shadow for depth */
   }
