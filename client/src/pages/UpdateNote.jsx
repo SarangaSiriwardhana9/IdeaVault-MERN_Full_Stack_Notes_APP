@@ -2,16 +2,16 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Loader from '../components/Loader'; // Import the Loader component
+import Loader from '../components/Loader'; 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import '../custom-toast.css'; // Import custom toast style
+import '../custom-toast.css'; 
 
 const UpdateNote = () => {
     const { id } = useParams();
     const [note, setNote] = useState({ title: '', content: '' });
     const { currentUser } = useSelector((state) => state.user);
-    const [loading, setLoading] = useState(false); // Add a loading state
+    const [loading, setLoading] = useState(false); 
 
     useEffect(() => {
         const fetchNote = async () => {
