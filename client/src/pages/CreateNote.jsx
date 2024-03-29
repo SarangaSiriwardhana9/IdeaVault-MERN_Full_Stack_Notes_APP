@@ -3,8 +3,9 @@ import React, { useState } from "react";
 import { useSelector } from 'react-redux';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import '../custom-toast.css'; // Import custom toast style
-import Loader from '../components/Loader'; // Import the Loader component
+import '../custom-toast.css'; 
+import Loader from '../components/Loader'; 
+import { useNavigate } from 'react-router-dom';
 
 export default function CreateNote() {
     const { currentUser } = useSelector((state) => state.user);
@@ -15,7 +16,8 @@ export default function CreateNote() {
         color: '',
     });
     const [errors, setErrors] = useState({});
-    const [loading, setLoading] = useState(false); // Add a loading state
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setNote({
@@ -24,7 +26,7 @@ export default function CreateNote() {
         });
         setErrors({
             ...errors,
-            [e.target.name]: '', // Clear any previous errors for the field
+            [e.target.name]: '', 
         });
     };
 
@@ -74,7 +76,7 @@ export default function CreateNote() {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                className: 'custom-toast', // Use custom-toast class
+                className: 'custom-toast', 
             });
             // Clear form
             setNote({
@@ -83,6 +85,9 @@ export default function CreateNote() {
                 userId: currentUser._id,
                 color: '', // Reset the color
             });
+            setTimeout(() => {
+                navigate('/mynotes');
+            }, 500);
         } catch (error) {
             console.log(error);
         } finally {
@@ -153,7 +158,7 @@ export default function CreateNote() {
                                     Save
                                 </button>
                             </div>
-                            {loading && <Loader />} {/* Show the Loader component if loading is true */}
+                            {loading && <Loader />} 
                         </div>
                     </div>
                 </div>

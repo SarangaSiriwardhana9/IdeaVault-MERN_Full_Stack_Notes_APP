@@ -11,9 +11,9 @@ const AppFooter = () => {
       textAlign: 'center',
     }}
   >
-      <div className='text-center text-slate-600'>
-    Ant Design ©{new Date().getFullYear()} Created by Ant UED
-    </div>
+ <div className='text-center text-slate-600'>
+    &copy; {new Date().getFullYear()} Idea Vault. All Rights Reserved by Sara
+</div>
   </Footer>
   );
 };

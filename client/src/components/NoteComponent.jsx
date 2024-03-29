@@ -6,6 +6,7 @@ import { MdDelete } from 'react-icons/md';
 import { RiPushpinFill, RiUnpinFill } from 'react-icons/ri';
 import { formatDistanceToNow } from 'date-fns';
 import '../Font.css';
+import Loader from './Loader';
 const NoteComponent = ({ note, onDelete, onUpdatePinnedStatus }) => {
     const handleDelete = (e) => {
         e.stopPropagation();

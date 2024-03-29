@@ -7,10 +7,6 @@ import Testimonials from "../components/Testimonials";
 import Services from "../components/Services";
 import Contact from "../components/Contact";
 
-
-
-
-
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-r from-[#fdfdf9] via-[#f3e7e9] to-[#f3f9a7]">

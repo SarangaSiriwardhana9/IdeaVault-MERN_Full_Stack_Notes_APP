@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+
 import {
   signInStart,
   signInSuccess,
@@ -10,6 +10,8 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import OAuth from "../components/OAuth";
 import '../Font.css'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
@@ -28,53 +30,34 @@ export default function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      dispatch(signInStart());
-      const res = await fetch("/api/auth/signin", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await res.json();
-
-      if (data.success === false) {
-        dispatch(signInFailure(data));
-        return Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: data.message || "Signin failed. Please try again.",
+        dispatch(signInStart());
+        const res = await fetch("/api/auth/signin", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
         });
-      }
-      dispatch(signInSuccess(data));
-      Swal.fire({
-        icon: "success",
-        title: "Success!",
-        text: "Signin successful.",
-      });
-      navigate("/");
+
+        const data = await res.json();
+
+        if (data.success === false) {
+            dispatch(signInFailure(data));
+            toast.error(data.message || "Sign in failed"); // Show error toast if sign in fails
+        } else {
+            dispatch(signInSuccess(data));
+            toast.success('Sign in successful!'); // Show success toast if sign in succeeds
+            //after tost message show navigate to home page
+            setTimeout(() => {
+              navigate('/');
+          }, 1000);
+            
+        }
     } catch (error) {
-      dispatch(signInFailure(error));
-
-      // Check if the error message contains the duplicate key error
-      if (error.message.includes("duplicate key error collection")) {
-        // Show a specific error message for duplicate username
-        Swal.fire({
-          icon: "error",
-          title: "Username Already Exists",
-          text: "The username you entered is already in use. Please choose a different username.",
-        });
-      } else {
-        // Show a generic error message for other errors
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: error.message || "Signin failed. Please try again.",
-        });
-      }
+        dispatch(signInFailure(error));
+        toast.error(error.message || "Something went wrong"); // Show error toast if an unexpected error occurs
     }
-  };
+};
 
   return (
     <div className='min-h-screen flex items-center justify-center  bg-gradient-to-r from-[#fdfdf9] via-[#f3e7e9] to-[#f3f9a7]'>

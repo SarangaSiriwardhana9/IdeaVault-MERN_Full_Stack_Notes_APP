@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import NoteComponent from "../components/NoteComponent";
 import Loader from "../components/Loader";
 import { FaSearch } from "react-icons/fa";
+import EmptyNotes from "../components/EmptyNotes";
 import '../Font.css'
 
 export default function MyNotes() {
@@ -52,6 +53,7 @@ export default function MyNotes() {
 
   const deleteNote = async (noteId) => {
     try {
+      setLoading(true); // Show loader
       const response = await fetch(`/api/note/delete-note/${noteId}`, {
         method: 'DELETE',
         headers: {
@@ -65,16 +67,19 @@ export default function MyNotes() {
       setNotes(notes.filter((note) => note._id !== noteId));
     } catch (error) {
       console.log('Error deleting note:', error.message);
+    } finally {
+      setLoading(false); // Hide loader
     }
   };
-
+  
   const updateNotePinnedStatus = async (noteId, isPinned) => {
     try {
+      setLoading(true); // Show loader
       const pinnedCount = notes.filter((note) => note.isPinned).length;
       if (isPinned && pinnedCount >= 6) {
         throw new Error('Maximum of 6 notes can be pinned');
       }
-
+  
       const response = await fetch(`/api/note/update-note-pinned-status/${noteId}`, {
         method: 'PUT',
         headers: {
@@ -90,8 +95,11 @@ export default function MyNotes() {
     } catch (error) {
       console.log('Error updating pinned status:', error.message);
       toast.error(error.message); // Show error in toast
+    } finally {
+      setLoading(false); // Hide loader
     }
   };
+  
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -103,16 +111,16 @@ export default function MyNotes() {
     <div className="min-h-screen  flex flex-col bg-gradient-to-r from-[#fdfdf9] via-[#f3e7e9] to-[#f3f9a7]">
       <div className="flex  flex-col">
         <div className="flex justify-center mt-4 items-center mb-4">
-        <div className="relative">
-  <input
-    type="text"
-    placeholder="Search notes"
-    value={searchTerm}
-    onChange={handleSearch}
-    className="border-2 border-gray-300 rounded-3xl w-full md:w-96 h-10 bg-white px-5 text-sm focus:outline-none"
-  />
-  <FaSearch className="absolute right-2 top-3 text-gray-400" />
-</div>
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search notes"
+              value={searchTerm}
+              onChange={handleSearch}
+              className="border-2 border-gray-300 rounded-3xl w-full md:w-96 h-10 bg-white px-5 text-sm focus:outline-none"
+            />
+            <FaSearch className="absolute right-2 top-3 text-gray-400" />
+          </div>
 
 
         </div>
@@ -158,8 +166,8 @@ export default function MyNotes() {
                       <li key={i} className="mx-2">
                         <button
                           className={`${i + 1 === currentPage
-                              ? 'bg-[#dfd080] text-black'
-                              : 'bg-gray-200 text-[#997757]'
+                            ? 'bg-[#dfd080] text-black'
+                            : 'bg-gray-200 text-[#997757]'
                             } px-3 py-1 rounded-md`}
                           onClick={() => paginate(i + 1)}
                         >
@@ -175,7 +183,7 @@ export default function MyNotes() {
 
 
           {!loading && pinnedNotes.length === 0 && unpinnedNotes.length === 0 && (
-            <p>No notes</p>
+            <EmptyNotes />
           )}
         </div>
         <ToastContainer /> {/* Container for displaying toasts */}

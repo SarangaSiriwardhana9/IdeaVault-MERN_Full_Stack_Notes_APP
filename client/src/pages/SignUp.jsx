@@ -1,7 +1,9 @@
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import OAuth from "../components/OAuth";
 import '../Font.css'
 
@@ -39,11 +41,15 @@ export default function SignUp() {
       setFormData({});
       setLoading(false);
 
-      // Show success alert
-      Swal.fire({
-        icon: "success",
-        title: "Success!",
-        text: "You have successfully signed up.",
+      // Show success toast
+      toast.success('Sign up successful! Please sign in.', {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
       });
 
       // Redirect to the signin page
@@ -53,19 +59,10 @@ export default function SignUp() {
 
       // Check if the error message contains the duplicate key error
       if (err.message.includes("duplicate key error collection")) {
-        // Show a specific error message for duplicate username
-        Swal.fire({
-          icon: "error",
-          title: "Username Already Exists",
-          text: "The username you entered is already in use. Please choose a different username.",
-        });
+        console.log(err.message);
       } else {
         // Show a generic error message for other errors
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: err.message || "Sign up failed. Please try again.",
-        });
+        console.log(err.message);
       }
     }
   };

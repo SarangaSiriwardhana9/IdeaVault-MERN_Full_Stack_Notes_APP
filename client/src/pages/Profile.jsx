@@ -1,7 +1,8 @@
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-vars */
 import React, { useState, useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"; 
 import '../Font.css'
+import Loader from '../components/Loader'
 
 import {
   getDownloadURL,
@@ -106,6 +107,7 @@ console.log(currentUser)
         <h1 className='my-text text-3xl font-extrabold text-center mb-6 text-[#a89a49]'>
           My  Profile
         </h1>
+        {loading && <Loader />} {/* Show loader while loading data */}
         <form onSubmit={handleSubmit} className='mb-8'>
           <div className='flex justify-center items-center mb-6'>
             {/* Firebase Storage rules

@@ -18,7 +18,7 @@ const UpdateNote = () => {
 
     useEffect(() => {
         const fetchNote = async () => {
-            setLoading(true); // Show the loader
+            setLoading(true); 
             try {
                 const response = await fetch(`/api/note/get-note-by-id/${id}`, {
                     headers: {
@@ -38,7 +38,7 @@ const UpdateNote = () => {
             } catch (error) {
                 console.log('Error fetching note:', error.message);
             } finally {
-                setLoading(false); // Hide the loader
+                setLoading(false); 
             }
         };
     
@@ -68,7 +68,7 @@ const UpdateNote = () => {
     };
 
     const handleSubmit = async () => {
-        setLoading(true); // Set loading to true before the fetch call
+        setLoading(true); 
         try {
             const response = await fetch(`/api/note/update-note/${id}`, {
                 method: 'PUT',
@@ -96,16 +96,14 @@ const UpdateNote = () => {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                className: 'custom-toast', // Use custom-toast class
+                className: 'custom-toast', 
                 style: {
                     background: 'yellow',
                     color: 'black',
                 },
-                
-
-                 // Navigate to the MyNotes page after updating the note
+              
             });
-            // Navigate to the MyNotes page after updating the note after tost message displayed
+            
             setTimeout(() => {
                 navigate('/mynotes');
             }, 1000);
@@ -113,7 +111,7 @@ const UpdateNote = () => {
         } catch (error) {
             console.log('Error updating note:', error.message);
         } finally {
-            setLoading(false); // Set loading to false after the fetch call completes
+            setLoading(false); 
         }
     };
 
@@ -176,7 +174,7 @@ const UpdateNote = () => {
                                     Back
                                 </Link>
                             </div>
-                            {loading && <Loader />} {/* Show the Loader component if loading is true */}
+                            {loading && <Loader />} 
                         </div>
                     </div>
                 </div>
