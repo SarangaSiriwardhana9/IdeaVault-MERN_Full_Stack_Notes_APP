@@ -68,7 +68,7 @@ npm run dev
 
 ## Deployment
 
-- The application is deployed on Render and can be accessed at Idea Vault: https://ideavault-c1lj.onrender.com
+- The application is deployed on Render and can be accessed at Idea Vault: https://ideavault-noteapp.onrender.com
 
 ## Future Updates
 
