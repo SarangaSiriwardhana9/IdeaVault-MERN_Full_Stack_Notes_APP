@@ -53,11 +53,11 @@ JWT_SECRET="your-jwt-secret"
 npm run dev
 ```
 
-###Deployment
+## Deployment
 
 - The application is deployed on Render and can be accessed at Idea Vault.
 
-###Future Updates
+## Future Updates
 
 - In future updates, users will be able to share their notes with other users.
 
