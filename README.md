@@ -4,6 +4,10 @@ Idea Vault is a note-keeping web application designed to help users organize the
 
 
 
+https://github.com/SarangaSiriwardhana9/IdeaVault-MERN_Full_Stack_Notes_APP/assets/99233703/87ee788e-0397-4148-8438-141f109aedbf
+
+
+
 | Image 1 | Image 2 |
 |---------|---------|
 | ![12](https://github.com/SarangaSiriwardhana9/IdeaVault-MERN_Full_Stack_Notes_APP/assets/99233703/7370dafa-b35b-4b59-a2ba-011e1c268576) | ![6](https://github.com/SarangaSiriwardhana9/IdeaVault-MERN_Full_Stack_Notes_APP/assets/99233703/4f5e33c9-e489-461d-8374-c75ed8c2467c) |
@@ -64,7 +68,7 @@ npm run dev
 
 ## Deployment
 
-- The application is deployed on Render and can be accessed at Idea Vault.
+- The application is deployed on Render and can be accessed at Idea Vault: https://ideavault-c1lj.onrender.com
 
 ## Future Updates
 
