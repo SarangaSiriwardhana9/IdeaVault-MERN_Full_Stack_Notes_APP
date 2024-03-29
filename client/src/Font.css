@@ -19,7 +19,7 @@
 
   .text-shadow-strong {
     text-shadow:
-      2px 2px 0px rgba(51, 85, 0, 0.3), /* Strong black shadow (offset, blur, spread, color) */
+      2px 2px 0px rgba(51, 85, 0, 0.2), /* Strong black shadow (offset, blur, spread, color) */
       4px 4px 0px rgba(58, 43, 1, 0.1); /* Lighter black shadow for depth */
   }
 

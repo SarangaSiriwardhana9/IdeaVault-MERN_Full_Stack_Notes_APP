@@ -15,7 +15,7 @@ import { Tooltip } from 'antd';
 export default function Testimonials() {
     return ( <div className="container mx-auto px-4 py-8 md:py-16">
     <div className="flex flex-col items-center justify-center mt-4 gap-8">
-      <h2 className=" my-text text-shadow-strong text-3xl md:text-4xl font-bold text-slate-600 mb-4 py-3">
+      <h2 className=" my-text text-shadow-strong text-3xl md:text-4xl font-bold text-[#83674d] mb-4 py-3">
         Customer Testimonials 👩‍👩‍👦‍👦
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

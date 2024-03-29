@@ -3,20 +3,21 @@ import { errorHandler } from "../utils/error.js";
 
 // Create a new note
 export const createNote = async (req, res, next) => {
-  const { title, content } = req.body;
+  const { title, content, color } = req.body;
 
-  if (!title || !content) {
-    return next(errorHandler(400, 'Title and content are required'));
+  if (!title || !content ) {
+    return next(errorHandler(400, 'Title, content, and color are required'));
   }
 
   try {
     const newNote = new Note({
       title,
       content,
-      userId: req.user.id, // Assuming req.user contains the logged-in user's ID
+      userId: req.user.id,
+      color,
     });
     await newNote.save();
-    res.status(201).json({ message: "Note created successfully!", note: newNote });
+    res.status(201).json({ message: 'Note created successfully!', note: newNote });
   } catch (error) {
     next(error);
   }
@@ -35,7 +36,7 @@ export const getNotesByUserId = async (req, res, next) => {
 // Update a note
 export const updateNote = async (req, res, next) => {
   const { id } = req.params;
-  const { title, content } = req.body;
+  const { title, content,color  } = req.body;
 
   try {
     const note = await Note.findById(id);
@@ -47,7 +48,7 @@ export const updateNote = async (req, res, next) => {
     if (note.userId == req.user.id) {
       const updatedNote = await Note.findByIdAndUpdate(
         id,
-        { title, content },
+        { title, content,color },
         { new: true }
       );
       
@@ -60,6 +61,7 @@ export const updateNote = async (req, res, next) => {
     next(error);
   }
 };
+
 
 
 

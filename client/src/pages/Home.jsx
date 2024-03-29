@@ -6,10 +6,7 @@ import '../Font.css'
 import Testimonials from "../components/Testimonials";
 import Services from "../components/Services";
 import Contact from "../components/Contact";
-// for Why choose Idea Vault
-import { MdOutlineSecurity } from "react-icons/md";
-import { MdMobileFriendly } from "react-icons/md";
-import { SiBookstack } from "react-icons/si";
+
 
 
 

@@ -11,7 +11,7 @@ export default function Contact() {
 
     return (
         <div className="container mt-3  mx-auto  px-8 py-8 md:py-16">
-            <h2 className="text-3xl md:text-4xl mb-10 text-center font-bold text-slate-600 py-3">
+            <h2 className="text-3xl md:text-4xl mb-10 text-center font-bold text-[#83674d] py-3">
                 Contact Us 📲
             </h2>
             <div className="grid  grid-cols-1 md:grid-cols-2 gap-6">
@@ -20,16 +20,16 @@ export default function Contact() {
                         Have a question or need support? Reach out to us using the form below or contact us directly.
                     </p>
                     <div className="flex items-center mb-4">
-                        <MailOutlined className="text-xl mr-2" />
-                        <span>Email: example@example.com</span>
+                        <MailOutlined className="text-xl text-[#5f582f] mr-2" />
+                        <span>Email: TeamSolution@gmail.com</span>
                     </div>
                     <div className="flex items-center mb-4">
-                        <PhoneOutlined className="text-xl mr-2" />
-                        <span>Phone: +1234567890</span>
+                        <PhoneOutlined className="text-xl text-[#5f582f] mr-2" />
+                        <span>Phone: 075852554</span>
                     </div>
                     <div className="flex items-center">
-                        <EnvironmentOutlined className="text-xl mr-2" />
-                        <span>Address: 123 Main Street, City, Country</span>
+                        <EnvironmentOutlined className="text-xl text-[#5f582f] mr-2" />
+                        <span>Address: 12 Main Street, Wadduwa, Srilanka</span>
                     </div>
                 </div>
                 <div className="bg-white p-4 rounded-2xl p-8 shadow-xl">
@@ -40,6 +40,7 @@ export default function Contact() {
                         <Form.Item
                             name="name"
                             rules={[{ required: true, message: 'Please enter your name' }]}
+                            className='focus:outline-none'
                         >
                             <Input placeholder="Your Name" />
                         </Form.Item>

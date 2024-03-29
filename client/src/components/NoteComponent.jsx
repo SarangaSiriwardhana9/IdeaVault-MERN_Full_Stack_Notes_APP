@@ -6,42 +6,65 @@ import { MdDelete } from 'react-icons/md';
 import { RiPushpinFill, RiUnpinFill } from 'react-icons/ri';
 import { formatDistanceToNow } from 'date-fns';
 import '../Font.css';
-
 const NoteComponent = ({ note, onDelete, onUpdatePinnedStatus }) => {
     const handleDelete = (e) => {
-        e.stopPropagation(); 
-        e.preventDefault();  
+        e.stopPropagation();
+        e.preventDefault();
         onDelete(note._id);
     };
 
     const handleUpdatePinnedStatus = (e) => {
-        e.stopPropagation(); 
-        e.preventDefault();  
+        e.stopPropagation();
+        e.preventDefault();
         const newPinnedStatus = !note.isPinned;
         onUpdatePinnedStatus(note._id, newPinnedStatus);
     };
 
-    const truncatedTitle = note.title.length > 15 ? `${note.title.slice(0, 15)}...` : note.title;
+    console.log("id", note._id, "color", note.color);
+
+    const truncatedTitle =
+        note.title.length > 15 ? `${note.title.slice(0, 15)}...` : note.title;
+
+        const colorMap = {
+            red: '#ffb4ab',
+            blue: '#a7bcff',
+            green: '#b6ffa7',
+            yellow: '#f9ffab',
+            purple: '#f7b6fd',
+            white: 'white',
+          };
 
     return (
         <Link to={`/update-note/${note._id}`} className="text-black">
-            <div className="bg-gray-100 shadow-xl p-4 rounded-lg w-92 h-48 overflow-hidden relative">
+           <div
+      className="shadow-xl p-4 rounded-lg w-92 h-48 overflow-hidden relative"
+      style={{ backgroundColor: note.color ? colorMap[note.color] : 'white' }}
+    >
                 <div className="flex justify-between items-center mb-2">
-                    <div className="my-text text-xl font-normal truncate z-50">{truncatedTitle}</div>
+                    <div className="my-text text-xl font-normal truncate ">
+                        {truncatedTitle}
+                    </div>
                     <div>
-                        <button onClick={handleUpdatePinnedStatus} className="mr-2 shadow-2xl bg-[#dfdeb8] hover:bg-[#e2e297] p-1 rounded-full ">
+                        <button
+                            onClick={handleUpdatePinnedStatus}
+                            className="mr-2 shadow-2xl bg-[#dfdeb8] hover:bg-[#f9ffab] p-1 rounded-full"/* e2e297 */
+                        >
                             {note.isPinned ? (
-                                <RiUnpinFill className="text-[#585830] shadow-2xl  rounded-2xl  hover:text-[#a0944e] text-2xl" />
+                                <RiUnpinFill className="text-[#585830] shadow-2xl rounded-2xl hover:text-[#a0944e] text-2xl" />
                             ) : (
-                                <RiPushpinFill className="text-[#535343] shadow-2xl  rounded-2xl  hover:text-[#4d4a3f] text-2xl" />
+                                <RiPushpinFill className="text-[#535343] shadow-2xl rounded-2xl hover:text-[#4d4a3f] text-2xl" />
                             )}
                         </button>
                     </div>
                 </div>
-                <hr className='text-slate-800'/> {/* Darken the horizontal rule */}
-                <p className="line-clamp-4">{note.content}</p>
+                <hr className="text-slate-800" />{' '}
+                {/* Darken the horizontal rule */}
+                <p className="line-clamp-3">{note.content}</p>
                 <div className="absolute bottom-2 left-2">
-                    <button onClick={handleDelete} className="text-[#f37b57] hover:text-[#965249]">
+                    <button
+                        onClick={handleDelete}
+                        className="text-[#f37b57] hover:text-[#965249] mr-2 shadow-2xl bg-[#dfdeb8] hover:bg-[#f9ffab] p-1 rounded-full"
+                    >
                         <MdDelete className="text-2xl" />
                     </button>
                 </div>

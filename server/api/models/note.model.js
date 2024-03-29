@@ -20,6 +20,11 @@ const noteSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    color: {
+      type: String,
+      enum: ['red', 'blue', 'green', 'yellow', 'purple','white'], // Define your color options
+      default: 'white', // Set a default color
+    },
   },
   { timestamps: true }
 );

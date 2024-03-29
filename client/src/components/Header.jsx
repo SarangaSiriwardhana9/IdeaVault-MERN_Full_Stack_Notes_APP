@@ -90,7 +90,7 @@ export default function Header() {
                 <GiHamburgerMenu className="m-2 mx-2"/>
               </button>
               {isMenuOpen && (
-                <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-end z-50 " onClick={closeMenu}>
+                <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-end   z-50" onClick={closeMenu}>
                   <div className=" w-52 bg-[#fffae8] items-center justify-center rounded-r-lg shadow-lg">
                     
                     <Link 
