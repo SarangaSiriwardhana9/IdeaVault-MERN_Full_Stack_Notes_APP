@@ -10,7 +10,17 @@
     font-weight: 400;
     font-style: normal;
   }
- 
+ /* Custom toast styles */
+.toast-success {
+  background-color: #f3f9a7; /* Yellow color */
+  color: #000; /* Text color */
+}
+
+.toast-error {
+  background-color: #ff0000; /* Red color */
+  color: #fff; /* Text color */
+}
+
  
 
   .text-shadow-inner {

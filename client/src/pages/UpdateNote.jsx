@@ -89,18 +89,19 @@ const UpdateNote = () => {
             console.log('Note updated successfully');
             // Show success toast
             toast.success('Note updated successfully!', {
-                position: "bottom-right",
-                autoClose: 3000,
+                position: "top-right",
+                autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                className: 'custom-toast', 
-                style: {
-                    background: 'yellow',
-                    color: 'black',
-                },
+                theme: "colored",
+              //colour yellow
+              style: {
+                backgroundColor: '#fff4c2',
+                color: '#29271b',
+              },
               
             });
             

@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import 'react-toastify/dist/ReactToastify.css';
 import {
   signInStart,
   signInSuccess,
@@ -10,8 +10,10 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import OAuth from "../components/OAuth";
 import '../Font.css'
+
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
+
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
@@ -46,8 +48,15 @@ export default function SignIn() {
             toast.error(data.message || "Sign in failed"); // Show error toast if sign in fails
         } else {
             dispatch(signInSuccess(data));
-            toast.success('Sign in successful!'); // Show success toast if sign in succeeds
-            //after tost message show navigate to home page
+            toast.success("Sign in successful!", {
+              autoClose: 2000,
+              theme: "colored",
+              //colour yellow
+              style: {
+                backgroundColor: '#fff4c2',
+                color: '#29271b',
+              },
+            });
             setTimeout(() => {
               navigate('/');
           }, 1000);

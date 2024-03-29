@@ -166,9 +166,9 @@ export default function MyNotes() {
                       <li key={i} className="mx-2">
                         <button
                           className={`${i + 1 === currentPage
-                            ? 'bg-[#dfd080] text-black'
-                            : 'bg-gray-200 text-[#997757]'
-                            } px-3 py-1 rounded-md`}
+                            ? 'bg-[#d1c167] text-black'
+                            : 'bg-[#d1c78b] text-[#997757]'
+                            } px-3 py-1 rounded-full`}
                           onClick={() => paginate(i + 1)}
                         >
                           {i + 1}
