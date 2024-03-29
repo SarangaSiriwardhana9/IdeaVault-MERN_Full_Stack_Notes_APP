@@ -59,6 +59,28 @@ npm run dev
 
 ## Future Updates
 
+
+
+![12](https://github.com/SarangaSiriwardhana9/IdeaVault-MERN_Full_Stack_Notes_APP/assets/99233703/7370dafa-b35b-4b59-a2ba-011e1c268576)
+![6](https://github.com/SarangaSiriwardhana9/IdeaVault-MERN_Full_Stack_Notes_APP/assets/99233703/4f5e33c9-e489-461d-8374-c75ed8c2467c)
+![1](https://github.com/SarangaSiriwardhana9/IdeaVault-MERN_Full_Stack_Notes_APP/assets/99233703/c1c2af29-ebb5-4511-a408-b16d5570744f)
+![4](https://github.com/SarangaSiriwardhana9/IdeaVault-MERN_Full_Stack_Notes_APP/assets/99233703/f4346660-17b1-4e54-b28e-fd93e3716dbb)
+![2](https://github.com/SarangaSiriwardhana9/IdeaVault-MERN_Full_Stack_Notes_APP/assets/99233703/3f93bc54-1ecc-4534-b48c-f3baea28587a)
+![3](https://github.com/SarangaSiriwardhana9/IdeaVault-MERN_Full_Stack_Notes_APP/assets/99233703/48dee718-3ad3-442f-962b-5778852a2bd9)
+![9](https://github.com/SarangaSiriwardhana9/IdeaVault-MERN_Full_Stack_Notes_APP/assets/99233703/11ad6231-1b29-4fb8-a567-87e2e88a28dc)
+![11](https://github.com/SarangaSiriwardhana9/IdeaVault-MERN_Full_Stack_Notes_APP/assets/99233703/858b499d-8112-4da2-8d2f-374ff7c06776)
+
+
+
+| Image 1 | Image 2 |
+|---------|---------|
+| ![12](https://github.com/SarangaSiriwardhana9/IdeaVault-MERN_Full_Stack_Notes_APP/assets/99233703/7370dafa-b35b-4b59-a2ba-011e1c268576) | ![6](https://github.com/SarangaSiriwardhana9/IdeaVault-MERN_Full_Stack_Notes_APP/assets/99233703/4f5e33c9-e489-461d-8374-c75ed8c2467c) |
+| ![1](https://github.com/SarangaSiriwardhana9/IdeaVault-MERN_Full_Stack_Notes_APP/assets/99233703/c1c2af29-ebb5-4511-a408-b16d5570744f) | ![4](https://github.com/SarangaSiriwardhana9/IdeaVault-MERN_Full_Stack_Notes_APP/assets/99233703/f4346660-17b1-4e54-b28e-fd93e3716dbb) |
+| ![2](https://github.com/SarangaSiriwardhana9/IdeaVault-MERN_Full_Stack_Notes_APP/assets/99233703/3f93bc54-1ecc-4534-b48c-f3baea28587a) | ![3](https://github.com/SarangaSiriwardhana9/IdeaVault-MERN_Full_Stack_Notes_APP/assets/99233703/48dee718-3ad3-442f-962b-5778852a2bd9) |
+| ![9](https://github.com/SarangaSiriwardhana9/IdeaVault-MERN_Full_Stack_Notes_APP/assets/99233703/11ad6231-1b29-4fb8-a567-87e2e88a28dc) | ![11](https://github.com/SarangaSiriwardhana9/IdeaVault-MERN_Full_Stack_Notes_APP/assets/99233703/858b499d-8112-4da2-8d2f-374ff7c06776) |
+
+
+
 - In future updates, users will be able to share their notes with other users.
 
 
