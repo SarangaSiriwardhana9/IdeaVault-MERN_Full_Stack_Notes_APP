@@ -32,41 +32,29 @@ export default function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-        dispatch(signInStart());
-        const res = await fetch("/api/auth/signin", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-        });
+      dispatch(signInStart());
+      const res = await fetch("api/auth/signin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-        const data = await res.json();
+      const data = await res.json();
 
-        if (data.success === false) {
-            dispatch(signInFailure(data));
-            toast.error(data.message || "Sign in failed"); // Show error toast if sign in fails
-        } else {
-            dispatch(signInSuccess(data));
-            toast.success("Sign in successful!", {
-              autoClose: 2000,
-              theme: "colored",
-              //colour yellow
-              style: {
-                backgroundColor: '#fff4c2',
-                color: '#29271b',
-              },
-            });
-            setTimeout(() => {
-              navigate('/');
-          }, 1000);
-            
-        }
+      if (data.success === false) {
+        dispatch(signInFailure(data));
+       
+      } else {
+        dispatch(signInSuccess(data));
+       
+        navigate('/', { replace: true }); // Navigate to home page
+      }
     } catch (error) {
-        dispatch(signInFailure(error));
-        toast.error(error.message || "Something went wrong"); // Show error toast if an unexpected error occurs
+      dispatch(signInFailure(error));
     }
-};
+  };
 
   return (
     <div className='min-h-screen flex items-center justify-center  bg-gradient-to-r from-[#fdfdf9] via-[#f3e7e9] to-[#f3f9a7]'>

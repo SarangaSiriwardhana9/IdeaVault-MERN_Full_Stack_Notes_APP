@@ -21,7 +21,7 @@ const NoteComponent = ({ note, onDelete, onUpdatePinnedStatus }) => {
         onUpdatePinnedStatus(note._id, newPinnedStatus);
     };
 
-    console.log("id", note._id, "color", note.color);
+    //console.log("id", note._id, "color", note.color);
 
     const truncatedTitle =
         note.title.length > 15 ? `${note.title.slice(0, 15)}...` : note.title;

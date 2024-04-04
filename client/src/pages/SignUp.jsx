@@ -41,22 +41,8 @@ export default function SignUp() {
       setFormData({});
       setLoading(false);
 
-      // Show success toast
-      toast.success('Sign up successful! Please sign in.', {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-        //colour yellow
-        style: {
-          backgroundColor: '#fff4c2',
-          color: '#29271b',
-        },
-      });
+      
+        
 
       // Redirect to the signin page
       navigate("/signin");

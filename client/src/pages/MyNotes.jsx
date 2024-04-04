@@ -48,8 +48,8 @@ export default function MyNotes() {
     const pinned = notes.filter((note) => note.isPinned);
     const unpinned = notes.filter((note) => !note.isPinned);
     setPinnedNotes(pinned.slice(0, 6)); // Limit pinned notes to a maximum of 6
-    setUnpinnedNotes(unpinned.slice((currentPage - 1) * notesPerPage, currentPage * notesPerPage));
-  }, [notes, currentPage, notesPerPage]);
+    setUnpinnedNotes(unpinned);
+  }, [notes]);
 
   const deleteNote = async (noteId) => {
     try {
@@ -99,14 +99,16 @@ export default function MyNotes() {
       setLoading(false); // Hide loader
     }
   };
-  
+
+  const indexOfLastNote = currentPage * notesPerPage;
+  const indexOfFirstNote = indexOfLastNote - notesPerPage;
+  const currentUnpinnedNotes = unpinnedNotes.slice(indexOfFirstNote, indexOfLastNote);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
-
+  
   return (
     <div className="min-h-screen  flex flex-col bg-gradient-to-r from-[#fdfdf9] via-[#f3e7e9] to-[#f3f9a7]">
       <div className="flex  flex-col">
@@ -121,8 +123,6 @@ export default function MyNotes() {
             />
             <FaSearch className="absolute right-2 top-3 text-gray-400" />
           </div>
-
-
         </div>
         <div className="flex flex-col  mb-8">{/* top */}
           {loading && <Loader />} {/* Show loader while loading notes */}
@@ -143,13 +143,13 @@ export default function MyNotes() {
               </div>
             </>
           )}
-          {!loading && unpinnedNotes.length > 0 && (
+          {!loading && currentUnpinnedNotes.length > 0 && (
             <>
               <div className="flex items-center justify-center">
                 <h1 className="my-text text-shadow-strong text-3xl md:text-4xl font-bold text-[#997757] mb-4 py-6">📝 All Notes</h1>
               </div>
               <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-24">
-                {unpinnedNotes.map((note) => (
+                {currentUnpinnedNotes.map((note) => (
                   <NoteComponent
                     key={note._id}
                     note={note}
@@ -159,29 +159,21 @@ export default function MyNotes() {
                   />
                 ))}
               </div>
-              {Math.ceil(notes.length / notesPerPage) > 1 && (
-                <nav className="mt-4 mb-4" aria-label="Pagination">
-                  <ul className="flex justify-center">
-                    {Array.from({ length: Math.ceil(notes.length / notesPerPage) }, (_, i) => (
-                      <li key={i} className="mx-2">
-                        <button
-                          className={`${i + 1 === currentPage
-                            ? 'bg-[#d1c167] text-black'
-                            : 'bg-[#d1c78b] text-[#997757]'
-                            } px-3 py-1 rounded-full`}
-                          onClick={() => paginate(i + 1)}
-                        >
-                          {i + 1}
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
+              {Math.ceil(unpinnedNotes.length / notesPerPage) > 1 && (
+                <div className='flex  justify-center my-8' >
+                  {
+                    Array.from({ length: Math.ceil(unpinnedNotes.length / notesPerPage) }).map((_, index) => (
+                      <button key={index} onClick={() => paginate(index + 1)}
+                        className={`px-4 mb-5 gap-6 py-2 rounded-full shadow-xl hover:shadow-none hover:bg-yellow-400 transition-all duration-300 ${currentPage === index + 1 ? 'bg-yellow-300  text-black' : ''}`}
+                      >
+                        {index + 1}
+                      </button>
+                    ))
+                  }
+                </div>
               )}
             </>
           )}
-
-
           {!loading && pinnedNotes.length === 0 && unpinnedNotes.length === 0 && (
             <EmptyNotes />
           )}
@@ -190,7 +182,4 @@ export default function MyNotes() {
       </div>
     </div>
   );
-
-
-
 }
